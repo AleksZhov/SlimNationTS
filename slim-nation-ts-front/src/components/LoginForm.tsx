@@ -1,4 +1,4 @@
-import { ChangeEvent, EventHandler, FC, useState } from "react";
+import { ChangeEvent, FC, useState } from "react";
 import Icon from "./Icon";
 import Button from "./Button";
 
