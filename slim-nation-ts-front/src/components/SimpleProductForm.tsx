@@ -1,8 +1,11 @@
 import { FC, useState, ChangeEvent } from "react";
 import Button from "./Button";
+import { IProduct } from "../interfaces/interfaces";
+
+
 
 const SimpleProductForm: FC = () => {
-    const [productInfo, setProductInfo] = useState({ productName: "",energy:0, protein: 0, fat: 0, carbs: 0, fiber: 0 });
+    const [productInfo, setProductInfo] = useState<IProduct>({ productName: "",energy:0, protein: 0, fat: 0, carbs: 0, fiber: 0 });
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { value, name } = e.currentTarget;
         setProductInfo({ ...productInfo, [name]: value });
