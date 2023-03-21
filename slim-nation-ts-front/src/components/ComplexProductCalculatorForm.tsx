@@ -1,12 +1,13 @@
-import { FC, useState } from "react";
+import { FC,  } from "react";
+import { IProductWithID } from "../interfaces/interfaces";
 
-interface IProduct{ id: string, productName: string, protein: number, fat: number, carbs: number, fiber: number }
-interface IProps {data:IProduct[]}
+
+interface IProps {data:IProductWithID[]}
 
 
 
 const ComplexProductCalculatorForm: FC<IProps> = (props) => {
-    const [quantityOfProducts, setQuantityOfProducts] = useState(1);
+    // const [quantityOfProducts, setQuantityOfProducts] = useState(1);
 
    
 

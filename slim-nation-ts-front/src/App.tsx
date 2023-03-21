@@ -1,8 +1,7 @@
 import React from 'react';
-import { Header,  LoginForm, SignInForm,SimpleProductForm} from "./components"
-import ProductsList from './Presentation/View/product/list/productListView';
+import { Header,  SignInForm} from "./components"
 import { Routes, Route } from 'react-router-dom'
-import { NotFoundPage } from './pages';
+import { NotFoundPage,LoginPage,AllProductsPage, NewProductPage } from './pages';
 
 import './App.css';
 
@@ -11,10 +10,10 @@ function App() {
     <div>
       <Routes>
         {/* <Route path="/" element={Home}/> */}
-        <Route path="login" element={<LoginForm/>}/>
+        <Route path="login" element={<LoginPage/>}/>
         <Route path="signIn" element={<SignInForm/>}/>
-        <Route path="/add-new-product" element={<SimpleProductForm/>}/>
-        <Route path="/products-list" element={<ProductsList/>} />
+        <Route path="/add-new-product" element={<NewProductPage/>}/>
+        <Route path="/products-list" element={<AllProductsPage/>} />
         <Route path="*" element={<NotFoundPage />} />
         </Routes>
    
