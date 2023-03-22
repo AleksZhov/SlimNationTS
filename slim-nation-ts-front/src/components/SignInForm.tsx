@@ -14,7 +14,7 @@ const SignInForm: FC = () => {
     }
 
     return (
-        <form className="bg-indigo-500 w-96 p-10 rounded-xl drop-shadow-lg" onSubmit={(e): void => { e.preventDefault(); console.log(loginInputs); setLoginInputs({ name:"",email: "", password: "" }) }}>
+        <form className=" mx-auto bg-indigo-500 w-96 p-10 rounded-xl drop-shadow-lg" onSubmit={(e): void => { e.preventDefault(); console.log(loginInputs); setLoginInputs({ name:"",email: "", password: "" }) }}>
             <label className="text-lg block"> Please enter Your name
                <input className="pl-1 mt-1 w-full rounded" type="text" name="name" value = {loginInputs.name} onChange = {handleChange} placeholder="user" minLength={3} required/> 
             </label><br />

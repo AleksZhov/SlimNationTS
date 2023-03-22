@@ -1,9 +1,11 @@
 import { FC } from "react";
-import { LoginForm } from "../components";
 
-const LoginPage: FC = () => {
+import { SignInForm } from "../components";
+
+
+const SignInPage: FC = () => {
     return (<main className="bg-login-bgnd h-screen bg-cover bg-center pt-[20%]">
-        <LoginForm/>
+        <SignInForm />
     </main>)
 }
-export default LoginPage;
+export default SignInPage;

@@ -4,7 +4,7 @@ export interface IProductWithID { id:string,productName: string, energy: number,
 
 export type IProductVM ={
     error: string | null,
-    products: IProduct[] | [],
+    products: IProductWithID[] | [],
     getProducts:Function,
 }
 

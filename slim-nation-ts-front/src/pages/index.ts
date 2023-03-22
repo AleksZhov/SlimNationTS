@@ -3,5 +3,6 @@ import LoginPage from "./LoginPage";
 import AllProductsPage from "./AllProductsPage";
 import NewProductPage from "./NewProductPage";
 import HomePage from "./HomePage";
+import SignInPage from "./SignInPage";
 
-export {NotFoundPage, LoginPage, AllProductsPage, NewProductPage, HomePage}
+export {NotFoundPage, LoginPage, AllProductsPage, NewProductPage, HomePage, SignInPage}

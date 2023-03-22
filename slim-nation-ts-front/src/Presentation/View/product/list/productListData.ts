@@ -9,6 +9,8 @@ export default function ProductListData(): IProductVM {
     const [products, setProducts] = useState<IProductWithID[] >([]);
     async function getProducts(): Promise<void>{
         const { result, error } = await GetProductsUseCase();
+        console.log('result: ', result);
+        
        
         setError(error);
         setProducts(result);

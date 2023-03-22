@@ -10,9 +10,11 @@ export function getAll() {
     try {
         let data = [];
         let dataString = window.localStorage.getItem(COLLECTION);
-        console.log('dataString: ', dataString);
-        
-        if (dataString){data = JSON.parse(dataString)} else{data = products}
+        if (dataString) {
+            const productsArrayFromLS = JSON.parse(dataString);
+            console.log('productsArrayFromLS: ', productsArrayFromLS);
+            data = productsArrayFromLS
+        } else { data = products }
 
        
         return Promise.resolve({ error: null, result:data})
@@ -39,6 +41,7 @@ export async function create(productData: IProduct) {
     let data = result;
     let newProduct: IProductWithID = { ...productData, id: nanoid() }
     data.push(newProduct);
+    console.log(JSON.stringify(data))
     window.localStorage.setItem(COLLECTION,JSON.stringify(data))
 return Promise.resolve({error:null,result:true})
     

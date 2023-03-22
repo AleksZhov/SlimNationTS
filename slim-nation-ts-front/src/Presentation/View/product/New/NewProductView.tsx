@@ -5,11 +5,9 @@ import NewProductData from "./NewProductData";
 
 
 const NewProductView: FC = () => {
-    const {error, saveProduct} = NewProductData()
+    const { saveProduct} = NewProductData()
 
     return (<div>
-    
-        <h2> New Product </h2>
         <SimpleProductForm createProduct={saveProduct}  />
 
 </div>) }

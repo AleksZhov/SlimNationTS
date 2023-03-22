@@ -11,7 +11,6 @@ const SimpleProductForm: FC<{ createProduct: Function }> = (props) => {
     const [productInfo, setProductInfo] = useState<IProduct>(initialState);
     const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
         const { value, name } = e.currentTarget;
-        console.log('value: ', value);
         const currentValueExtr = (name: string) => {
             if (name === "productName") return {
                 [name]: value
@@ -21,12 +20,11 @@ const SimpleProductForm: FC<{ createProduct: Function }> = (props) => {
         setProductInfo({ ...productInfo,...currentValueExtr(name) });
 }
 
-    return (<form className="p-5 bg-green-300 w-96 drop-shadow-xl flex-col justify-center items-center rounded-xl" onSubmit={(e): void => {
+    return (<form className="mx-auto  p-5 bg-green-300 w-96 drop-shadow-xl flex-col justify-center items-center rounded-xl" onSubmit={(e): void => {
         e.preventDefault();
-        console.log(productInfo);
         createProduct(productInfo);
         setProductInfo(initialState)
-}}>
+    }}>
         <label className="block mx-auto text-center text-lg font-bold">Product Name
             <input className="block w-full rounded px-2 mt-1" value={productInfo.productName} name="productName" onChange={handleChange} />
         </label>

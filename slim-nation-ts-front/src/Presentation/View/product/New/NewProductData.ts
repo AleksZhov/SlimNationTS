@@ -8,10 +8,7 @@ export default function NewProductData(): INewProduct {
   
 
     async function saveProduct(data: IProduct) {
-        console.log('data: ', data);
-        
-        const { result, error } = await CreateProductUseCase(data);
-        console.log('result: ', result);
+        const {  error } = await CreateProductUseCase(data);
           setError(error)
     }
   
