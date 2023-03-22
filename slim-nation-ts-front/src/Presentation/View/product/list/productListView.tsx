@@ -21,13 +21,12 @@ const ProductsList: FC = () => {
         <ul>
             {products.map((product, idx) => {
                 return <li key={idx}>
-
                 <div> <h2>{product.productName}</h2>
-                    <p>`Energy {product.energy} kcal`</p>
-                    <p>`Proteins {product.protein}g/100g`</p>
-                    <p>`Carbohydrates  {product.carbs} g/100g`</p>
-                    <p>`Fat {product.fat} g/100g`</p>
-                    <p>`Fiber {product.fiber} g/100g`</p>
+                    <p>Energy {product.energy} kcal</p>
+                    <p>Proteins {product.protein}g/100g</p>
+                    <p>Carbohydrates  {product.carbs} g/100g</p>
+                    <p>Fat {product.fat} g/100g</p>
+                    <p>Fiber {product.fiber} g/100g</p>
                 </div>
         </li>})}
         </ul>
