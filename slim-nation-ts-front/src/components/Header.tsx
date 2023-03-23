@@ -10,10 +10,11 @@ const Header = () => {
             </NavLink>
         </div>
         <nav className=" flex align-baseline  gap-4">
-            <NavLink className={({isActive}):string =>{return(`text-xl  ${isActive?"text-indigo-900 border-2 border-sky-900 rounded-xl p-1 font-bold":"text-indigo-700 "}`)}  } to ="/login">Login</NavLink>
-            <NavLink className={({isActive}):string =>{return(`text-xl  ${isActive?"text-indigo-900  border-2 border-sky-900 rounded-xl p-1 font-bold":"text-indigo-700"}`)}  } to ="/sign-in">Sign In</NavLink>
-            <NavLink className={({isActive}):string =>{return(`text-xl  ${isActive?"text-indigo-900  border-2 border-sky-900 rounded-xl p-1 font-bold":"text-indigo-700"}`)}  } to ="/add-new-product">New product</NavLink>
-            <NavLink className={({isActive}):string =>{return(`text-xl  ${isActive?"text-indigo-900  border-2 border-sky-900 rounded-xl p-1 font-bold":"text-indigo-700"}`)}  } to ="/products-list">Product list</NavLink>
+            <NavLink className={({isActive}):string =>{return(`text-xl  ${isActive?"text-indigo-900 border-2 border-sky-900 rounded-xl p-1 font-bold bg-amber-500":"text-indigo-700 "}`)}  } to ="/login">Login</NavLink>
+            <NavLink className={({isActive}):string =>{return(`text-xl  ${isActive?"text-indigo-900  border-2 border-sky-900 rounded-xl p-1 font-bold bg-amber-500":"text-indigo-700"}`)}  } to ="/sign-in">Sign In</NavLink>
+            <NavLink className={({isActive}):string =>{return(`text-xl  ${isActive?"text-indigo-900  border-2 border-sky-900 rounded-xl p-1 font-bold bg-amber-500":"text-indigo-700"}`)}  } to ="/add-new-product">New product</NavLink>
+            <NavLink className={({ isActive }): string => { return (`text-xl  ${isActive ? "text-indigo-900  border-2 border-sky-900 rounded-xl p-1 font-bold bg-amber-500" : "text-indigo-700"}`) }} to="/products-list">Product list</NavLink>
+            <NavLink className={({isActive}):string =>{return(`text-xl  ${isActive?"text-indigo-900 border-2 border-sky-900 rounded-xl p-1 font-bold bg-amber-500":"text-indigo-700 "}`)}  } to ="/add-complex-product">New dish</NavLink>
         </nav>
 </header>) };
 export default Header;

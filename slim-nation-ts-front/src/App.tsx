@@ -1,5 +1,5 @@
 import React from 'react';
-import { Header,  SignInForm} from "./components"
+import { Header} from "./components"
 import { Routes, Route } from 'react-router-dom'
 import { NotFoundPage,LoginPage,AllProductsPage, NewProductPage, HomePage, SignInPage } from './pages';
 
@@ -14,6 +14,7 @@ function App() {
         <Route path="sign-in" element={<SignInPage/>}/>
         <Route path="/add-new-product" element={<NewProductPage/>}/>
         <Route path="/products-list" element={<AllProductsPage/>} />
+        <Route path="/add-complex-product" element={<AllProductsPage/>} />
         <Route path="*" element={<NotFoundPage />} />
         </Routes>
    

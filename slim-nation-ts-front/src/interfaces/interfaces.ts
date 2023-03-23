@@ -5,7 +5,8 @@ export interface IProductWithID { id:string,productName: string, energy: number,
 export type IProductVM ={
     error: string | null,
     products: IProductWithID[] | [],
-    getProducts:Function,
+    getProducts: Function,
+     DeleteProductUseCase:Function
 }
 
-export type INewProduct ={error:string | null,saveProduct:Function}
+export type INewProduct ={error:string | null,saveProduct:Function,}

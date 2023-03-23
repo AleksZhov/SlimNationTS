@@ -1,7 +1,7 @@
 import { IProductVM, IProductWithID } from '../../../../interfaces/interfaces';
 import { useState } from "react";
 import { GetProductsUseCase } from '../../../../Domain/UseCase/Product/GetProducts';
-
+import { DeleteProductUseCase } from '../../../../Domain/UseCase/Product/DeleteProduct';
 
 
 export default function ProductListData(): IProductVM {
@@ -9,11 +9,9 @@ export default function ProductListData(): IProductVM {
     const [products, setProducts] = useState<IProductWithID[] >([]);
     async function getProducts(): Promise<void>{
         const { result, error } = await GetProductsUseCase();
-        console.log('result: ', result);
-        
-       
         setError(error);
         setProducts(result);
+        
     }
-    return {error, products, getProducts}
+    return {error, products, getProducts,DeleteProductUseCase}
 }

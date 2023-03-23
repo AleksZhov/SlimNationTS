@@ -12,7 +12,6 @@ export function getAll() {
         let dataString = window.localStorage.getItem(COLLECTION);
         if (dataString) {
             const productsArrayFromLS = JSON.parse(dataString);
-            console.log('productsArrayFromLS: ', productsArrayFromLS);
             data = productsArrayFromLS
         } else { data = products }
 
@@ -41,18 +40,27 @@ export async function create(productData: IProduct) {
     let data = result;
     let newProduct: IProductWithID = { ...productData, id: nanoid() }
     data.push(newProduct);
-    console.log(JSON.stringify(data))
+    
     window.localStorage.setItem(COLLECTION,JSON.stringify(data))
 return Promise.resolve({error:null,result:true})
     
 }
 
 export async function deleteOne(id: string) {
-    let { result } = await getAll();
+    try { console.log("id from deleteONe",id)
+    let { result, error } = await getAll();
     let data = result;
-    data.filter((item: IProductWithID) => { return item.id !== id })
-    window.localStorage.setItem(COLLECTION, JSON.stringify(data))
+        const filteredProducts = data.filter((item: IProductWithID) => { return item.id !== id })
+        console.log('filteredProducts: ', filteredProducts);
+        console.log('data: ', data);
+        
+    window.localStorage.setItem(COLLECTION, JSON.stringify(filteredProducts))
     return Promise.resolve({error:null,result:true})
+        
+    } catch (err: any) {
+        return Promise.resolve({ error: err.message, result: false })
+        
+    }
     
 }
 
