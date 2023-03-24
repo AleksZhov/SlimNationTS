@@ -8,5 +8,6 @@ export type IProductVM ={
     getProducts: Function,
      DeleteProductUseCase:Function
 }
+export type INewDishVM = { error: string | null, products:IProductWithID[] | [], getProducts:Function,CreateProductUseCase:Function}
 
 export type INewProduct ={error:string | null,saveProduct:Function,}
