@@ -59,12 +59,6 @@ export default function NewDishData(): INewDishVM {
     const handleIngrWeightChange = (id: string, weight: number) => {
         const newArr = ingredients;
         const idx = newArr.findIndex(ingr=>ingr.id ===id)
-            // const currentIngr = ingredients.find(product => product.id === id);
-            // if (currentIngr) {
-            //     currentIngr.weight = Number(weight);
-            //     const ingredientsWithoutCurrIngr = ingredients.filter(ingr => ingr.id !== id);
-            //      setIngredients([...ingredientsWithoutCurrIngr, currentIngr])
-            // }
         if (idx !== -1) {
             newArr[idx].weight = Number(weight);
         setIngredients(newArr)}
