@@ -20,11 +20,11 @@ const NewDishSummary: FC<IProps> = (props) => {
             </thead>
             <tbody className="border-collapse border border-slate-500 ">
                 <tr>
-                    <td className="border-collapse border border-slate-500 text-center ">{energy}</td>
-                    <td className="border-collapse border border-slate-500 text-center ">{fat}</td>
-                    <td className="border-collapse border border-slate-500 text-center ">{protein}</td>
-                    <td className="border-collapse border border-slate-500 text-center ">{carbs}</td>
-                    <td className="border-collapse border border-slate-500 text-center ">{fiber}</td>
+                    <td className="border-collapse border border-slate-500 text-center ">{energy.toFixed(1)}</td>
+                    <td className="border-collapse border border-slate-500 text-center ">{fat.toFixed(1)}</td>
+                    <td className="border-collapse border border-slate-500 text-center ">{protein.toFixed(1)}</td>
+                    <td className="border-collapse border border-slate-500 text-center ">{carbs.toFixed(1)}</td>
+                    <td className="border-collapse border border-slate-500 text-center ">{fiber.toFixed(1)}</td>
                 </tr>
             </tbody>
         </table>
