@@ -12,6 +12,6 @@ export type IProductVM ={
     getProducts: Function,
      DeleteProductUseCase:Function
 }
-export type INewDishVM = { error: string | null, products:IProductWithID[] | [], getProducts:Function,CreateProductUseCase:Function, addNewIngredient:Function,ingredients:IIngredient[] | [],handleIngrWeightChange:Function,calculateNutrients:Function, newDishData:INewDishData}
+export type INewDishVM = { error: string | null, products:IProductWithID[] | [], getProducts:Function,addNewDishToDB:Function, addNewIngredient:Function,remIngrFromList:Function,ingredients:IIngredient[] | [],handleIngrWeightChange:Function,calculateNutrients:Function, newDishData:INewDishData,handleDishNameChange:Function}
 
 export type INewProduct ={error:string | null,saveProduct:Function,}

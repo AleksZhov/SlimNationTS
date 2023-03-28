@@ -47,13 +47,10 @@ return Promise.resolve({error:null,result:true})
 }
 
 export async function deleteOne(id: string) {
-    try { console.log("id from deleteONe",id)
+    try { 
     let { result, error } = await getAll();
     let data = result;
         const filteredProducts = data.filter((item: IProductWithID) => { return item.id !== id })
-        console.log('filteredProducts: ', filteredProducts);
-        console.log('data: ', data);
-        
     window.localStorage.setItem(COLLECTION, JSON.stringify(filteredProducts))
     return Promise.resolve({error:null,result:true})
         
