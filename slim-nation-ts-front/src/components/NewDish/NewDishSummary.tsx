@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { INewDishData } from "../interfaces/interfaces";
+import { INewDishData } from "../../types/types";
 
 interface IProps{newDishData: INewDishData}
 const NewDishSummary: FC<IProps> = (props) => {

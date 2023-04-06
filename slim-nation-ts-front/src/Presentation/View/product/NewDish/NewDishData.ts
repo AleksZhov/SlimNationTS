@@ -6,7 +6,7 @@ import { useNavigate } from 'react-router-dom';
 import { GetProductsUseCase } from "../../../../Domain/UseCase/Product/GetProducts";
 import { CreateProductUseCase } from "../../../../Domain/UseCase/Product/CreateProduct";
 
-import { INewDishVM, IProductWithID, IIngredient,INewDishData } from "../../../../interfaces/interfaces";
+import { INewDishVM, IProductWithID, IIngredient,INewDishData } from "../../../../types/types";
 
 const initialNewDishData = {productName:"",energy:0,protein:0,carbs:0,fat:0,fiber:0, weight:0}
 

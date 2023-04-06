@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IIngredient } from "../interfaces/interfaces";
+import { IIngredient } from "../types/types";
 import Button from "./Button";
 interface IProps { ingredient: IIngredient, handleIngrWeightChange: Function; remIngrFromList:Function}
 

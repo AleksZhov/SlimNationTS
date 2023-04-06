@@ -1,4 +1,4 @@
-import { IProductVM, IProductWithID } from '../../../../interfaces/interfaces';
+import { IProductVM, IProductWithID } from '../../../../types/types';
 import { useState } from "react";
 import { GetProductsUseCase } from '../../../../Domain/UseCase/Product/GetProducts';
 import { DeleteProductUseCase } from '../../../../Domain/UseCase/Product/DeleteProduct';

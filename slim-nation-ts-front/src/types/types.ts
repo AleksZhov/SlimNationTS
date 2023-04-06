@@ -14,4 +14,6 @@ export type IProductVM ={
 }
 export type INewDishVM = { error: string | null, products:IProductWithID[] | [], getProducts:Function,addNewDishToDB:Function, addNewIngredient:Function,remIngrFromList:Function,ingredients:IIngredient[] | [],handleIngrWeightChange:Function,calculateNutrients:Function, newDishData:INewDishData,handleDishNameChange:Function}
 
-export type INewProduct ={error:string | null,saveProduct:Function,}
+export type INewProduct = { error: string | null, saveProduct: Function, }
+
+export type ICurrUser={user:{userName:string, email:string},accessToken:string, refreshToken:string}

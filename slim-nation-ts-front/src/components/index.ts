@@ -5,7 +5,7 @@ import LoginForm from "./LoginForm";
 import SignInForm from "./SignInForm";
 import SimpleProductForm from "./SimpleProductForm";
 import NewDishChooseMenuForm from "./NewDishChooseMenuForm";
-import NewDishIngredientsList from "./NewDishIngredientsList";
+import NewDishIngredientsList from "./NewDish/NewDishIngredientsList";
 import NewDishSummary from "./NewDishSummary";
 
 export {Button,NewDishSummary, Header, Icon, LoginForm, SignInForm,SimpleProductForm,NewDishIngredientsList, NewDishChooseMenuForm}

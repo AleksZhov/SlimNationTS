@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 
-import { IProductWithID, IProduct } from '../../interfaces/interfaces';
+import { IProductWithID, IProduct } from '../../types/types';
 import products from "../products.json";
 const COLLECTION = "PRODUCTS"
 

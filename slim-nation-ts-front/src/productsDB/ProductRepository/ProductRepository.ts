@@ -1,5 +1,5 @@
 import { getAll, create, getOne, deleteOne } from "../DataSource/ProductsLocal StorageDataSource";
-import { IProduct } from "../../interfaces/interfaces";
+import { IProduct } from "../../types/types";
 
 export async function createProduct(data: IProduct) {
     const { result, error } = await create(data);

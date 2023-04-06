@@ -1,7 +1,7 @@
 import { FC, useState, ChangeEvent } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from "./Button";
-import { IProduct } from "../interfaces/interfaces";
+import { IProduct } from "../types/types";
 
 const initialState:IProduct = { productName: "",energy:0, protein: 0, fat: 0, carbs: 0, fiber: 0 }
 

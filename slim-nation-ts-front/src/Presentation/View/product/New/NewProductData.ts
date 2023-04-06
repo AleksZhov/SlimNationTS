@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { CreateProductUseCase } from "../../../../Domain/UseCase/Product/CreateProduct";
-import { INewProduct, IProduct } from "../../../../interfaces/interfaces";
+import { INewProduct, IProduct } from "../../../../types/types";
 
 
 export default function NewProductData(): INewProduct {

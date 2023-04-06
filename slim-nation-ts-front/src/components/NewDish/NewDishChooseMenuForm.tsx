@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { IProductWithID } from "../interfaces/interfaces";
+import { IProductWithID } from "../types/types";
 import Button from "./Button";
 interface IProps{products:IProductWithID[], addNewIngredient:Function}
 
