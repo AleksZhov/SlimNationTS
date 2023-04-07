@@ -1,6 +1,6 @@
 import { ChangeEvent, FC, useState } from "react";
-import Icon from "./Icon";
-import Button from "./Button";
+import Icon from "../../../../components/Icon";
+import Button from "../../../../components/Button";
 
 
 const LoginForm: FC = () => {

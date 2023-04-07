@@ -7,8 +7,9 @@ import './App.css';
 import { ICurrUser } from './types/types';
 
 const userInitialState = { user: { userName: "", email: "" }, accessToken: "", refreshToken: "" }
+const currentUserData = { currentUserData:userInitialState, setCurrentUserData: (userInitialState:ICurrUser) => { } }
 
-const CurrentUserContext = createContext({ currentUserData:userInitialState, setCurrentUserData: (userInitialState:ICurrUser) => { } });
+const CurrentUserContext = createContext(currentUserData);
 
 
 function App() {
