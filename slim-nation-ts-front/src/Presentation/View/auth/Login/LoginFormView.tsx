@@ -1,9 +1,11 @@
 import { ChangeEvent, FC, useState } from "react";
 import Icon from "../../../../components/Icon";
 import Button from "../../../../components/Button";
+import LoginFormData from "./LoginFormVM";
 
 
 const LoginForm: FC = () => {
+    const {login}= LoginFormData();
     const [loginInputs, setLoginInputs] = useState({ email: "", password: "" });
     const [isPasswordVisivle, setIsPasswordVisible] = useState(false)
 
@@ -14,7 +16,12 @@ const LoginForm: FC = () => {
     }
 
     return (
-        <form className="mx-auto bg-indigo-500 w-96 p-10 rounded-xl drop-shadow-lg" onSubmit={(e): void => { e.preventDefault(); console.log(loginInputs);setLoginInputs({ email: "", password: "" }) }}>
+        <form className="mx-auto bg-indigo-500 w-96 p-10 rounded-xl drop-shadow-lg"
+            onSubmit={async (e) => {
+            e.preventDefault();
+            await login(loginInputs);
+            setLoginInputs({ email: "", password: "" })
+        }}>
            <h2 className="text-2xl text-center font-bold">Log In</h2>
             <label className="mt-3 text-lg block"> Please enter Your e-mail
                <input className="pl-1 mt-1 w-full rounded" type="text" name="email" value = {loginInputs.email} onChange = {handleChange} placeholder="example@gmail.com" minLength={6} required/> 

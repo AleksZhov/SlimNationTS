@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { IProductWithID } from "../types/types";
-import Button from "./Button";
+import { IProductWithID } from "../../types/types";
+import Button from "../Button";
 interface IProps{products:IProductWithID[], addNewIngredient:Function}
 
 const NewDishChooseMenuForm: FC<IProps> = (props) => {

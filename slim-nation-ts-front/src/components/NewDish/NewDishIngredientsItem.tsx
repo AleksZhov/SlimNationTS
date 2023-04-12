@@ -1,6 +1,6 @@
 import { FC } from "react";
-import { IIngredient } from "../types/types";
-import Button from "./Button";
+import { IIngredient } from "../../types/types";
+import Button from "../Button";
 interface IProps { ingredient: IIngredient, handleIngrWeightChange: Function; remIngrFromList:Function}
 
 const NewDishIngredientsItem: FC<IProps> = (props) => {

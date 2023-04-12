@@ -16,6 +16,7 @@ export type INewDishVM = { error: string | null, products:IProductWithID[] | [],
 
 export type INewProduct = { error: string | null, saveProduct: Function, }
 
-export type ICurrUser = { user: { userName: string, email: string }, accessToken: string, refreshToken: string }
+export type ICurrUser = { user: { name: string, email: string }, accessToken: string, refreshToken: string }
 
-export type loginFormInfo = { email: string, password:string}
+export type loginFormInfo = { email: string, password: string }
+export type signInFormInfo = { name:string,email: string, password: string }

@@ -1,13 +1,41 @@
 import axios from "axios"
-import { useContext } from "react";
 
-import { loginFormInfo } from "../../types/types";
+import { loginFormInfo, signInFormInfo } from "../../types/types";
+
 
 export async function loginUser(data: loginFormInfo) {
-// const {currentUserData,setCurrentUserData} = useContext(currentUserData)
-    const result = await axios.post("localhost:3001/api/users/login", data);
-
-
-    return{result:true, error:null}
     
+    try {const result = await axios.post( "http://localhost:3001/api/users/login", data );
+    if (result.status === 201) {
+        return { result: result.data, error: null }
+    }else{return{result:null, error:result}}
+        
+    } catch (error) {
+      
+        return{result:null, error}
+    }
+}
+
+export async function logoutUser(accessToken: string) {
+    try {
+        const result = await axios.get("http://localhost:3001/api/users/logout", { headers: { 'Authorization': `Bearer ${accessToken}` } })
+        if (result.status === 204) { return { result: true, error: null } } else {
+            return {result:null,error:result}
+        }
+        
+    } catch (error) {
+        return { result: null, error}
+    }
+}
+
+export async function signInUser(data: signInFormInfo) {
+    try {
+        const result = await axios.post("http://localhost:3001/api/users/sign-in", data);
+        if (result.status === 201) {
+            return { result: true, error: null } }else {
+            return{result:null, error:result}
+        }
+    } catch (error) {
+        return{result:null, error}
+    }
 }

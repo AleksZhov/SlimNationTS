@@ -1,7 +1,7 @@
 import Button from "./Button";
 import Header from "./Header";
 import Icon from "./Icon";
-import LoginForm from "../Presentation/View/auth/Login/LoginFormData";
+import LoginForm from "../Presentation/View/auth/Login/LoginFormView";
 import SignInForm from "../Presentation/View/auth/SignIn/SignInFormView";
 import SimpleProductForm from "./SimpleProductForm";
 

@@ -1,5 +1,6 @@
 import { FC, useEffect } from "react";
-import { Button, NewDishChooseMenuForm, NewDishIngredientsList, NewDishSummary } from "../../../../components/";
+import { Button, NewDishIngredientsList,  } from "../../../../components/";
+import {NewDishChooseMenuForm,NewDishSummary } from "../../../../components/NewDish"
 import NewDishData from "./NewDishData";
 
 const NewDishView: FC = () => {
