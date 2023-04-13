@@ -1,7 +1,7 @@
 import { ChangeEvent, FC, useState } from "react";
 import Icon from "../../../../components/Icon";
 import Button from "../../../../components/Button";
-import SignInFormData from "./SingInFormVM";
+import SignInFormData from "./SignInFormVM";
 
 
 const SignInForm: FC = () => {

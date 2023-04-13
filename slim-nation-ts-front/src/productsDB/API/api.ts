@@ -1,6 +1,7 @@
+
 import axios from "axios"
 
-import { loginFormInfo, signInFormInfo } from "../../types/types";
+import { loginFormInfo, signInFormInfo, IProduct } from "../../types/types";
 
 
 export async function loginUser(data: loginFormInfo) {
@@ -38,4 +39,32 @@ export async function signInUser(data: signInFormInfo) {
     } catch (error) {
         return{result:null, error}
     }
+}
+
+export async function getAllProducts(accessToken: string) {
+    try {
+        const result = await axios.get("http://localhost:3001/api/products/", { headers: { 'Authorization': `Bearer ${accessToken}` } })
+        if (result.status === 200) { return { result: result.data, error: null } } else {
+            return{result:null, error:result}
+        }
+        
+    } catch (error) {
+        return{result:null, error}
+        
+    }
+}
+
+export async function createNewProduct(data: IProduct, accessToken:string) {
+
+     try {
+        const result = await axios.post("http://localhost:3001/api/products/",data, { headers: { 'Authorization': `Bearer ${accessToken}` } })
+        if (result.status === 200) { return { result: result.data, error: null } } else {
+            return{result:null, error:result}
+        }
+        
+    } catch (error) {
+        return{result:null, error}
+        
+    }
+    
 }

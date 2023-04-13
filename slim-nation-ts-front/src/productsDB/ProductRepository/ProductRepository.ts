@@ -1,13 +1,14 @@
 import { getAll, create, getOne, deleteOne } from "../DataSource/ProductsLocal StorageDataSource";
+import { getAllProducts, createNewProduct } from "../API/api";
 import { IProduct } from "../../types/types";
 
-export async function createProduct(data: IProduct) {
-    const { result, error } = await create(data);
+export async function createProduct(data: IProduct, accessToken:string) {
+    const { result, error } = await createNewProduct(data,accessToken);
     return {result, error}
 }
 
-export async function getProducts() {
-    const { result, error } = await getAll();
+export async function getProducts(accessToken:string) {
+    const { result, error } = await getAllProducts(accessToken);
     return {result, error}
 }
 

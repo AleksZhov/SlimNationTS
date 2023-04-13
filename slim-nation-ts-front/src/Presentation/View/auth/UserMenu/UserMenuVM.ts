@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { useUserCont, userInitialState } from "../../../../App";
+import { useUserCont, userInitialState } from "../../../../context/UserContext";
 import { logoutUseCase } from "../../../../Domain/UseCase/auth/logOutUseCase";
 
 export default function UserMenuVM() {

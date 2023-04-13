@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { useUserCont } from "../../../../App";
+import { useUserCont } from "../../../../context/UserContext";
 import { Button } from "../../../../components";
 import UserMenuVM from "./UserMenuVM";
 const UserMenuView: FC = () => {

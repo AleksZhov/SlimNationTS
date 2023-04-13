@@ -2,7 +2,7 @@
 import { NavLink } from "react-router-dom";
 import { Icon } from "./";
 import UserMenuView from "../Presentation/View/auth/UserMenu/UserMenuView";
-import { useUserCont } from "../App";
+import { useUserCont } from "../context/UserContext";
 const Header = () => {
     const { currentUserData } = useUserCont();
     return (<header className="bg-gradient-to-r from-sky-400 to-blue-500 flex p-5">

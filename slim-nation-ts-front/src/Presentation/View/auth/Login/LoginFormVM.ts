@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState } from "react";
 import { loginFormInfo } from "../../../../types/types";
 import { loginUseCase } from "../../../../Domain/UseCase/auth/loginUseCase";
-import {useUserCont} from "../../../../App"
+import {useUserCont} from "../../../../context/UserContext"
 
 export default function LoginFormData() {
     const navigate = useNavigate();

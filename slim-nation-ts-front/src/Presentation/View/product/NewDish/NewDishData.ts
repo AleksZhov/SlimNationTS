@@ -5,22 +5,29 @@ import { useNavigate } from 'react-router-dom';
 
 import { GetProductsUseCase } from "../../../../Domain/UseCase/Product/GetProducts";
 import { CreateProductUseCase } from "../../../../Domain/UseCase/Product/CreateProduct";
+import { useUserCont } from '../../../../context/UserContext';
+import { useProductListCont } from '../../../../context/ProductsListContext';
+import { INewDishVM, product, IIngredient, INewDishData } from "../../../../types/types";
 
-import { INewDishVM, IProductWithID, IIngredient,INewDishData } from "../../../../types/types";
 
-const initialNewDishData = {productName:"",energy:0,protein:0,carbs:0,fat:0,fiber:0, weight:0}
+const initialNewDishData = { productName: "", energy: 0, protein: 0, carbs: 0, fat: 0, fiber: 0, weight: 0 }
+
 
 export default function NewDishData(): INewDishVM {
+
+    const { currentUserData } = useUserCont()
+    const { productsList, setProductsList } = useProductListCont();
     const navigate = useNavigate()
-    const [error, setError] = useState("");
+    const [error, setError] = useState<string | null>(null);
     const [createNewProdError, setCreateNewProdError] = useState("");
-    const [products, setProducts] = useState<IProductWithID[]>([]);
+    const [products, setProducts] = useState<product[]>([]);
     const [ingredients, setIngredients] = useState<IIngredient[] | []>([]);
     const[newDishData,setNewDishData] = useState<INewDishData>(initialNewDishData)
 
     async function getProducts(): Promise<void>{
-        const { result, error } = await GetProductsUseCase();
- setError(error);
+        const { result, error } = await GetProductsUseCase(currentUserData.accessToken);
+        if (error === null) { setError(error); }
+        if(error && typeof error === "object" && "message" in error && typeof error.message === "string"){ setError(error.message);}
         setProducts(result);
     }
 
@@ -39,10 +46,10 @@ export default function NewDishData(): INewDishVM {
     }
     
     const addNewIngredient = (id: string):void => {
-        const reqIngredient = products.find(product =>  product.id === id );
+        const reqIngredient = products.find(product =>  product._id === id );
         if (reqIngredient) {
             const ingrToAdd: IIngredient = { ...reqIngredient, weight: 0 }
-            const isIngAlreadyAdded = ingredients.find(ingr => ingr.id === id)
+            const isIngAlreadyAdded = ingredients.find(ingr => ingr._id === id)
             if (!isIngAlreadyAdded) { setIngredients([...ingredients, ingrToAdd]) } else {
             Notify.warning("Ingredient is already in the list!")
         }
@@ -50,7 +57,7 @@ export default function NewDishData(): INewDishVM {
     }
 
     const remIngrFromList = (id: string): void => {
-        const newIngrArr = ingredients.filter(ingr => ingr.id !== id);
+        const newIngrArr = ingredients.filter(ingr => ingr._id !== id);
         setIngredients(newIngrArr);
         if(newIngrArr.length === 0){setNewDishData(initialNewDishData)}
     }
@@ -58,7 +65,7 @@ export default function NewDishData(): INewDishVM {
 
     const handleIngrWeightChange = (id: string, weight: number) => {
         const newArr = ingredients;
-        const idx = newArr.findIndex(ingr=>ingr.id ===id)
+        const idx = newArr.findIndex(ingr=>ingr._id ===id)
         if (idx !== -1) {
             newArr[idx].weight = Number(weight);
         setIngredients(newArr)}
@@ -81,9 +88,11 @@ export default function NewDishData(): INewDishVM {
             protein: Number((protein * 100 / weight).toFixed(1)),
             carbs: Number((carbs * 100 / weight).toFixed(1)),
             fiber: Number((fiber * 100 / weight).toFixed(1))
-        })
-            if (error) { setCreateNewProdError(error) }
+        }, currentUserData.accessToken)
+            if (error && typeof error === "object" && "message" in error && error.message === "string") { setCreateNewProdError(error.message) }
+            if(error === null){setError(null)}
             if (result) {
+                setProductsList([...productsList, result])
                 setNewDishData(initialNewDishData); setIngredients([]);
                 navigate("/products-list",{replace:true})
             }

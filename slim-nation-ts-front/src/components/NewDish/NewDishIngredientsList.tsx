@@ -12,7 +12,7 @@ const NewDishIngredientsList: FC<IProps> = (props) => {
         <h2 className="text-xl font-bold text-center mt-[20px] mb-3"> New Dish Ingredients</h2>
         <ul>
             {ingredients.length>0?ingredients.map(ingredient => {
-                return (<li key={ingredient.id}>
+                return (<li key={ingredient._id}>
                     <NewDishIngredientsItem ingredient={ingredient} handleIngrWeightChange={handleIngrWeightChange}
                         remIngrFromList={remIngrFromList } />
             </li>)}):<li><p className="text-center text-amber-300">No choosen ingredients for the moment</p></li>}

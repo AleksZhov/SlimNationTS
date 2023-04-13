@@ -1,6 +1,6 @@
 import { nanoid } from "nanoid";
 
-import { IProductWithID, IProduct } from '../../types/types';
+import { product, IProduct } from '../../types/types';
 import products from "../products.json";
 const COLLECTION = "PRODUCTS"
 
@@ -27,7 +27,7 @@ export function getOne(id: string) {
         let data = [];
         let dataString = window.localStorage.getItem(COLLECTION)
         if (dataString) { data = JSON.parse(dataString) };
-        let filteredData = data.filter((product: IProductWithID) => {return  product.id === id} );
+        let filteredData = data.filter((product: product) => {return  product._id === id} );
         return Promise.resolve({error:null, result: filteredData.length>0? filteredData[0]:null})
     } catch (error:any) {
         return Promise.resolve({error:error.message, result:null})
@@ -38,7 +38,7 @@ export function getOne(id: string) {
 export async function create(productData: IProduct) {
     let {  result } = await getAll();
     let data = result;
-    let newProduct: IProductWithID = { ...productData, id: nanoid() }
+    let newProduct = { ...productData, _id: nanoid() }
     data.push(newProduct);
     
     window.localStorage.setItem(COLLECTION,JSON.stringify(data))
@@ -50,7 +50,7 @@ export async function deleteOne(id: string) {
     try { 
     let { result, error } = await getAll();
     let data = result;
-        const filteredProducts = data.filter((item: IProductWithID) => { return item.id !== id })
+        const filteredProducts = data.filter((item: product) => { return item._id !== id })
     window.localStorage.setItem(COLLECTION, JSON.stringify(filteredProducts))
     return Promise.resolve({error:null,result:true})
         
