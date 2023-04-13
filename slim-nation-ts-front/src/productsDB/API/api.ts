@@ -19,7 +19,7 @@ export async function loginUser(data: loginFormInfo) {
 
 export async function logoutUser(accessToken: string) {
     try {
-        const result = await axios.get("http://localhost:3001/api/users/logout", { headers: { 'Authorization': `Bearer ${accessToken}` } })
+        const result = await axios("http://localhost:3001/api/users/logout", {method:"get", headers: { 'Authorization': `Bearer ${accessToken}` } })
         if (result.status === 204) { return { result: true, error: null } } else {
             return {result:null,error:result}
         }

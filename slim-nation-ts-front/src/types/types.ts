@@ -13,7 +13,7 @@ export type IProductVM ={
     getProducts: Function,
      DeleteProductUseCase:Function
 }
-export type INewDishVM = { error: string | null, products:product[], getProducts:Function,addNewDishToDB:Function, addNewIngredient:Function,remIngrFromList:Function,ingredients:IIngredient[] | [],handleIngrWeightChange:Function,calculateNutrients:Function, newDishData:INewDishData,handleDishNameChange:Function}
+export type INewDishVM = { error: string | null, products:product[],addNewDishToDB:Function, addNewIngredient:Function,remIngrFromList:Function,ingredients:IIngredient[] | [],handleIngrWeightChange:Function,calculateNutrients:Function, newDishData:INewDishData,handleDishNameChange:Function}
 
 export type INewProduct = { error: string | null, saveProduct: Function, }
 

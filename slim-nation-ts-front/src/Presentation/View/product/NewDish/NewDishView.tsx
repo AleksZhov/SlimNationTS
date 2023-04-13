@@ -4,11 +4,11 @@ import {NewDishChooseMenuForm,NewDishSummary } from "../../../../components/NewD
 import NewDishData from "./NewDishData";
 
 const NewDishView: FC = () => {
-    const { products, getProducts, addNewIngredient, remIngrFromList, ingredients, handleIngrWeightChange, newDishData,handleDishNameChange, addNewDishToDB } = NewDishData();
+    const { products,  addNewIngredient, remIngrFromList, ingredients, handleIngrWeightChange, newDishData,handleDishNameChange, addNewDishToDB } = NewDishData();
 
-    useEffect(() => {
-        getProducts();
-    }, [])
+    // useEffect(() => {
+    //     getProducts();
+    // }, [])
     
     return (<div className="w-[500px] bg-gradient-to-b from-violet-500 to-fuchsia-500 rounded-xl py-[30px] px-5 m-auto">
         <NewDishChooseMenuForm products={products} addNewIngredient={addNewIngredient} />

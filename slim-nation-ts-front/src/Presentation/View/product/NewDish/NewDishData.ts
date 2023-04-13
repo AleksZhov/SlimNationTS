@@ -3,7 +3,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-import { GetProductsUseCase } from "../../../../Domain/UseCase/Product/GetProducts";
+// import { GetProductsUseCase } from "../../../../Domain/UseCase/Product/GetProducts";
 import { CreateProductUseCase } from "../../../../Domain/UseCase/Product/CreateProduct";
 import { useUserCont } from '../../../../context/UserContext';
 import { useProductListCont } from '../../../../context/ProductsListContext';
@@ -20,16 +20,16 @@ export default function NewDishData(): INewDishVM {
     const navigate = useNavigate()
     const [error, setError] = useState<string | null>(null);
     const [createNewProdError, setCreateNewProdError] = useState("");
-    const [products, setProducts] = useState<product[]>([]);
+    // const [products, setProducts] = useState<product[]>([]);
     const [ingredients, setIngredients] = useState<IIngredient[] | []>([]);
     const[newDishData,setNewDishData] = useState<INewDishData>(initialNewDishData)
 
-    async function getProducts(): Promise<void>{
-        const { result, error } = await GetProductsUseCase(currentUserData.accessToken);
-        if (error === null) { setError(error); }
-        if(error && typeof error === "object" && "message" in error && typeof error.message === "string"){ setError(error.message);}
-        setProducts(result);
-    }
+    // async function getProducts(): Promise<void>{
+    //     const { result, error } = await GetProductsUseCase(currentUserData.accessToken);
+    //     if (error === null) { setError(error); }
+    //     if(error && typeof error === "object" && "message" in error && typeof error.message === "string"){ setError(error.message);}
+    //     setProducts(result);
+    // }
 
         const calculateNutrients = (): void => {
         if (ingredients.length > 0) {
@@ -46,7 +46,7 @@ export default function NewDishData(): INewDishVM {
     }
     
     const addNewIngredient = (id: string):void => {
-        const reqIngredient = products.find(product =>  product._id === id );
+        const reqIngredient = productsList.find(product =>  product._id === id );
         if (reqIngredient) {
             const ingrToAdd: IIngredient = { ...reqIngredient, weight: 0 }
             const isIngAlreadyAdded = ingredients.find(ingr => ingr._id === id)
@@ -82,22 +82,25 @@ export default function NewDishData(): INewDishVM {
         const { productName, energy, protein, fat, fiber, carbs,weight } = newDishData;
         if (productName === "" || weight === 0) { Notify.warning("Please fill all required fields.") } else {
             const { error, result } = await CreateProductUseCase({
+               
             productName,
             fat: Number((fat * 100 / weight).toFixed(1)),
             energy: Number((energy * 100 / weight).toFixed(1)),
             protein: Number((protein * 100 / weight).toFixed(1)),
             carbs: Number((carbs * 100 / weight).toFixed(1)),
             fiber: Number((fiber * 100 / weight).toFixed(1))
-        }, currentUserData.accessToken)
+            }, currentUserData.accessToken)
+             console.log('result: ', result);
             if (error && typeof error === "object" && "message" in error && error.message === "string") { setCreateNewProdError(error.message) }
             if(error === null){setError(null)}
             if (result) {
                 setProductsList([...productsList, result])
-                setNewDishData(initialNewDishData); setIngredients([]);
-                navigate("/products-list",{replace:true})
+                setNewDishData(initialNewDishData);
+                setIngredients([]);
+                navigate("/products-list")
             }
        }
     }
     
-    return {error,products,getProducts, addNewDishToDB,addNewIngredient,remIngrFromList, ingredients, handleIngrWeightChange,calculateNutrients, newDishData,handleDishNameChange}
+    return {error,products:productsList, addNewDishToDB,addNewIngredient,remIngrFromList, ingredients, handleIngrWeightChange,calculateNutrients, newDishData,handleDishNameChange}
 }
