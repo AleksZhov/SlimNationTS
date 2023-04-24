@@ -3,7 +3,7 @@ import { Notify } from 'notiflix/build/notiflix-notify-aio';
 import { useState } from "react";
 import { useNavigate } from 'react-router-dom';
 
-// import { GetProductsUseCase } from "../../../../Domain/UseCase/Product/GetProducts";
+
 import { CreateProductUseCase } from "../../../../Domain/UseCase/Product/CreateProduct";
 import { useUserCont } from '../../../../context/UserContext';
 import { useProductListCont } from '../../../../context/ProductsListContext';
@@ -20,16 +20,11 @@ export default function NewDishData(): INewDishVM {
     const navigate = useNavigate()
     const [error, setError] = useState<string | null>(null);
     const [createNewProdError, setCreateNewProdError] = useState("");
-    // const [products, setProducts] = useState<product[]>([]);
+   
     const [ingredients, setIngredients] = useState<IIngredient[] | []>([]);
     const[newDishData,setNewDishData] = useState<INewDishData>(initialNewDishData)
 
-    // async function getProducts(): Promise<void>{
-    //     const { result, error } = await GetProductsUseCase(currentUserData.accessToken);
-    //     if (error === null) { setError(error); }
-    //     if(error && typeof error === "object" && "message" in error && typeof error.message === "string"){ setError(error.message);}
-    //     setProducts(result);
-    // }
+
 
         const calculateNutrients = (): void => {
         if (ingredients.length > 0) {

@@ -1,5 +1,4 @@
-import { getAll, create, getOne, deleteOne } from "../DataSource/ProductsLocal StorageDataSource";
-import { getAllProducts, createNewProduct } from "../API/api";
+import { getAllProducts, createNewProduct,deleteOneProduct } from "../API/api";
 import { IProduct } from "../../types/types";
 
 export async function createProduct(data: IProduct, accessToken:string) {
@@ -12,12 +11,12 @@ export async function getProducts(accessToken:string) {
     return {result, error}
 }
 
-export async function getProduct(id:string) {
-    const { result, error } = await getOne(id);
-    return {result, error}
-}
+// export async function getProduct(id:string) {
+//     const { result, error } = await getOne(id);
+//     return {result, error}
+// }
 
 export async function deleteProduct(id:string) {
-    const { result, error } = await deleteOne(id);
+    const { result, error } = await deleteOneProduct(id);
     return {result, error}
 }

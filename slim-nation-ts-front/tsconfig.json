@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": [
+    "target": "es2020",
+    "lib": ["es2018",
       "dom",
       "dom.iterable",
       "esnext"
@@ -18,7 +18,11 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "baseUrl": ".",
+    "paths": {
+      "@app":["./src/App.tsx"]
+    }
   },
   "include": [
     "src"
