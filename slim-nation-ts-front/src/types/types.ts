@@ -21,4 +21,5 @@ export type ICurrUser = { user: { name: string, email: string }, accessToken: st
 
 
 export type loginFormInfo = { email: string, password: string }
-export type signInFormInfo = { name:string,email: string, password: string }
+export type signInFormInfo = { name: string, email: string, password: string }
+export type consDiaryData={date:Date, setDate:Function,getProducts:Function, productsList:product[]}

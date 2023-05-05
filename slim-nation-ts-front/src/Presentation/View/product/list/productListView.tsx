@@ -15,7 +15,7 @@ const ProductsList: FC = () => {
      
     },[] )
     
-    return (<div className="pt-[20px]">
+    return (<div className="pt-[20px] h-[90vh] overflow-y-auto">
         <h1 className="  text-4xl text-center text-indigo-500 font-bold">Product List</h1>
         <ul className=" mt-6 flex gap-4 flex-wrap mx-5">
             {products.map((product) => {
