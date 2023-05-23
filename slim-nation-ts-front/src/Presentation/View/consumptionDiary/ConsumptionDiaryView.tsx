@@ -8,7 +8,7 @@ import { useProductListCont } from "context/ProductsListContext";
 
 
 const ConsumptionDiary: FC = () => {
-    const { date, setDate, getProducts, } = useViewModel();
+    const { date, setDate, getProducts, addNewMeal} = useViewModel();
     const {productsList}=useProductListCont()
 
     
@@ -24,7 +24,7 @@ useEffect(() => {
             setDate(date);
             console.log(date.toDateString())
         }} />
-            <NewMealForm products={productsList} />
+            <NewMealForm products={productsList} addNewMeal ={addNewMeal} />
             </>
     )
    

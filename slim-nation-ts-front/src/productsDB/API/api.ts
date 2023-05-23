@@ -3,7 +3,7 @@ import axios from "axios"
 import { useUserCont } from './../../context/UserContext';
 
 
-import { loginFormInfo, signInFormInfo, IProduct } from "../../types/types";
+import { loginFormInfo, signInFormInfo, IProduct, currentMealData } from "../../types/types";
 
 export const setAxiosAccToken = (token: string) => {
     axios.defaults.headers.Authorization = token?`Bearer ${token}`:''
@@ -59,6 +59,7 @@ export async function signInUser(data: signInFormInfo) {
     }
 }
 
+
 export async function getAllProducts(accessToken: string) {
     try {
         const result = await axios.get("http://localhost:3001/api/products/", { headers: { 'Authorization': `Bearer ${accessToken}` } })
@@ -90,6 +91,17 @@ export async function deleteOneProduct(id: string) {
     try {
         const result = await axios("http://localhost:3001/api/products/", { method: "delete", data: { id } })
         if(result.status === 201){return {result:true, error:null}}else{return{result:null, error:result}}
+        
+    } catch (error) {
+        return{result:null, error}
+    }
+}
+
+export async function createMeal(accessToken: string, newMealData: currentMealData) {
+    console.log('newMealData: from api ', newMealData);
+    
+    try {const result = await axios("http://localhost:3001/api/daily-ration/", { method: "post", headers: { 'Authorization': `Bearer ${accessToken}` } , data:  newMealData})
+        if(result.status === 201){return {result:result.data, error:null}}else{return{result:null, error:result}}
         
     } catch (error) {
         return{result:null, error}

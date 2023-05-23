@@ -4,14 +4,14 @@ import Button from "../Button"
 
 interface IProps{
     products: product[],
-    // addNewMeal: Function
+    addNewMeal: Function
 }
 
 const NewMealForm: FC<IProps> = (props) => {
-    const { products, } = props;
+    const { products,addNewMeal } = props;
     return (<form onSubmit={(e) => {
         e.preventDefault();
-        console.log(e.currentTarget.mealName.value, e.currentTarget.mealWeight.value)
+        addNewMeal(e.currentTarget.mealName.value, e.currentTarget.mealWeight.value)
     }}>
         <h2>Please choose desired dish or product </h2>
         <select className="" id="mealName" name="mealName">
