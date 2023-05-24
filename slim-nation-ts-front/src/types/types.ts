@@ -1,3 +1,4 @@
+import { deleteMeal } from 'productsDB/API/api';
 export interface IProduct { productName: string, energy: number, protein: number, fat: number, carbs: number, fiber: number };
 
 
@@ -22,5 +23,8 @@ export type ICurrUser = { user: { name: string, email: string }, accessToken: st
 
 export type loginFormInfo = { email: string, password: string }
 export type signInFormInfo = { name: string, email: string, password: string }
-export type consDiaryData = { date: Date, setDate: Function, getProducts: Function, productsList: product[], addNewMeal: Function }
-export type currentMealData = {date:string,currentDish:{productName:string, energy:number, protein:number, fat:number,carbs:number,fiber:number,weight:number}}
+export type consDiaryData = { date: Date, setDate: Function, getProducts: Function, productsList: product[], addNewMeal: Function,mealsList: dailyMeal [], getDailyMeals:Function, deleteMeal:Function }
+
+export type currentMealData = { date: string, currentDish: { productName: string, energy: number, protein: number, fat: number, carbs: number, fiber: number, weight: number } }
+
+export type dailyMeal ={productName: string, energy: number, protein: number, fat: number, carbs: number, fiber: number, weight: number, _id:string}

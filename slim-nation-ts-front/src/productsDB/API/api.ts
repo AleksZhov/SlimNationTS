@@ -98,9 +98,29 @@ export async function deleteOneProduct(id: string) {
 }
 
 export async function createMeal(accessToken: string, newMealData: currentMealData) {
-    console.log('newMealData: from api ', newMealData);
-    
     try {const result = await axios("http://localhost:3001/api/daily-ration/", { method: "post", headers: { 'Authorization': `Bearer ${accessToken}` } , data:  newMealData})
+        if(result.status === 201){return {result:result.data, error:null}}else{return{result:null, error:result}}
+        
+    } catch (error) {
+        return{result:null, error}
+    }
+}
+
+export async function getMeals(date: string, accessToken: string) {
+    try {
+        const result = await axios("http://localhost:3001/api/daily-ration/meals/", { method: "post", headers: { 'Authorization': `Bearer ${accessToken}` }, data: { date } })
+        if(result.status === 200){return {result:result.data, error:null}}else{return{result:null, error:result}}
+        
+    } catch (error) {
+        return{result:null, error}
+    }
+}
+
+export async function deleteMeal(id: string,date:string, accessToken: string) {
+        try {
+            const result = await axios("http://localhost:3001/api/daily-ration/", { method: "delete", headers: { 'Authorization': `Bearer ${accessToken}` }, data: { id, date } })
+            console.log('result: ', result);
+            
         if(result.status === 201){return {result:result.data, error:null}}else{return{result:null, error:result}}
         
     } catch (error) {
